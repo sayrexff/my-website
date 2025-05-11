@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SayrexAuth Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-gray-100">
+  <div class="container mx-auto px-4 py-8">
+
+    <header class="mb-8">
+      <h1 class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
+        <i class="fas fa-key mr-2"></i>SayrexAuth
+      </h1>
+    </header>
+
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+ 
+      <div class="bg-gray-800 rounded-lg p-6 shadow-lg border-l-4 border-blue-500">
+        <h2 class="text-xl font-semibold mb-4 flex items-center">
+          <i class="fas fa-user-plus mr-2 text-blue-400"></i> Create User
+        </h2>
+        <div class="space-y-3">
+          <button class="admin-btn bg-blue-600 hover:bg-blue-700">
+            <i class="fas fa-users mr-2"></i> User Variables
+          </button>
+          <button class="admin-btn bg-green-600 hover:bg-green-700">
+            <i class="fas fa-calendar-plus mr-2"></i> Extend User(s)
+          </button>
+          <button class="admin-btn bg-red-600 hover:bg-red-700">
+            <i class="fas fa-calendar-minus mr-2"></i> Subtract User(s)
+          </button>
+          <button class="admin-btn bg-purple-600 hover:bg-purple-700">
+            <i class="fas fa-file-export mr-2"></i> Export Users
+          </button>
+        </div>
+      </div>
+
+
+<div class="bg-gray-800 rounded-lg p-6 shadow-lg border-l-4 border-red-500">
+  <h2 class="text-xl font-semibold mb-4 flex items-center">
+    <i class="fas fa-trash-alt mr-2 text-red-400"></i> Bulk Actions
+  </h2>
+  <div class="space-y-3">
+    <button class="admin-btn bg-red-600 hover:bg-red-700" data-action="delete-all">
+      <i class="fas fa-users-slash mr-2"></i> Delete All Users
+    </button>
+    <button class="admin-btn bg-yellow-600 hover:bg-yellow-700" data-action="reset-hwid">
+      <i class="fas fa-id-card mr-2"></i> Reset All HWID
+    </button>
+    <button class="admin-btn bg-green-600 hover:bg-green-700" data-action="unban-all">
+      <i class="fas fa-ban mr-2"></i> Unban All Users
+    </button>
+  </div>
+</div>
+
+
+      <div class="lg:col-span-2 bg-gray-800 rounded-lg p-6 shadow-lg border-l-4 border-purple-500">
+        <div class="flex flex-col md:flex-row gap-4">
+          <div class="flex-1">
+            <label class="block text-sm font-medium mb-1">Show</label>
+            <select class="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 focus:ring-2 focus:ring-purple-500">
+              <option>10</option>
+              <option>25</option>
+              <option>50</option>
+              <option>100</option>
+            </select>
+          </div>
+          <div class="flex-1">
+            <label class="block text-sm font-medium mb-1">Search</label>
+            <div class="relative">
+              <input type="text" placeholder="Username" 
+                class="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 pl-10 focus:ring-2 focus:ring-purple-500">
+              <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ 
+    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+      <table class="min-w-full">
+        <thead class="bg-gray-700">
+          <tr>
+            <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+              <input type="checkbox" class="rounded border-gray-500">
+            </th>
+            <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Username</th>
+            <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">HWID</th>
+            <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">IP</th>
+            <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Creation Date</th>
+            <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Last Login</th>
+            <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Banned?</th>
+            <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="usersTableBody" class="divide-y divide-gray-700">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
